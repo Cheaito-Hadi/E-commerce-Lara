@@ -7,7 +7,7 @@ login = () => {
         const email = document.getElementById("email_in").value;
         const password = document.getElementById("password").value;
 
-        formdata = new FormData();
+        let formdata = new FormData();
         formdata.append("email", email);
         formdata.append("password", password);
         
@@ -19,8 +19,8 @@ login = () => {
 
         fetch("http://127.0.0.1:8000/api/login", requestOptions)
             .then(response => response.json())
-            .then(result => alert(result))
-            .catch(error => alert('error', error));
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
 
     })
 
