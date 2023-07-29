@@ -32,4 +32,10 @@ class ProductController extends Controller
         return json_encode(["success" => true]);
     }
 
+    function getProducts()
+    {
+        $product = Product::all();
+        return json_encode(["products" => $product]);
+    }
+
 }
