@@ -7,24 +7,26 @@ class Product {
         this.price = price;
         this.img_path = img_path;
     }
-    
+
     viewProducts() {
         return ` <div class="product">
+        <div class="description"><span class="description-span"><b>Description:</b> ${this.description}</span>
+        <div class="fav-cart">
+                        <div><span class="favorite-icon">&#10084;</span></div>
+                        <div class="detail-txt">Cart</div>
+                    </div>
+                </div>
             <div class="product-wrapper">
                 <div class="img-container">
                     <img src="../../assets/images/Football.png" width="200" height="200">
                 </div>
-                <div class="description">${this.description}</div>
                 <div class="product-container">
                     <div class="details">
                         <div class="detail-txt">Name: <span class="txt">${this.name}</span></div>
-                        <div class="detail-txt">Category: <span class="txt">${this.category}</span></div>
-                        <div class="detail-txt">Price: <span class="txt">$ ${this.price}</span></div>
+                        <div class="detail-txt">Category: <span class="txt">${this.price}</span></div>
+                        <div class="detail-txt">Price: <span class="txt">${this.category}</span></div>
                     </div>
-                    <div class="fav-cart">
-                        <div><span class="favorite-icon">&#10084;</span></div>
-                        <div class="detail-txt">Cart</div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -32,15 +34,15 @@ class Product {
     }
 }
 const products_objects = [];
-function showProductsDashboard() {
+function showDashboard() {
     const formData = new FormData();
-    
+
     let requestOptions = {
         method: "POST",
         body: formData
     };
-    
-    fetch("http://127.0.0.1:8000/api/show_products",requestOptions )
+
+    fetch("http://127.0.0.1:8000/api/show_products", requestOptions)
         .then(response => response.json())
         .then(data => {
             data.products.forEach(ele => {
@@ -59,19 +61,19 @@ function showProductsDashboard() {
             const productCards = document.querySelectorAll('.product');
             productCards.forEach((card) => {
                 card.addEventListener('mouseenter', () => {
-                    const image = card.querySelector('.img-container');
+                    const info = card.querySelector('.product-wrapper');
                     const description = card.querySelector('.description');
-                    image.style.display = 'none';
+                    info.style.display = 'none';
                     description.style.display = 'flex';
                 });
                 card.addEventListener('mouseleave', () => {
-                    const image = card.querySelector('.img-container');
+                    const info = card.querySelector('.product-wrapper');
                     const description = card.querySelector('.description');
-                    image.style.display = 'block';
+                    info.style.display = 'block';
                     description.style.display = 'none';
                 });
             });
         });
 }
 
-showProductsDashboard();
+showDashboard();

@@ -116,8 +116,8 @@ body {
 
 .fav-cart {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 .favorite-icon {
@@ -125,4 +125,12 @@ body {
     cursor: pointer;
     color: white;
 
+}
+
+.description{
+    display: flex;
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+    flex-direction: column;
+    justify-content: space-between;
 }
