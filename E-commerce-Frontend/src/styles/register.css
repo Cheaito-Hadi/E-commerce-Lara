@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    color: #202124;
     font-family: 'Roboto', sans-serif;
-    line-height: 1.4286;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 90vh;
+    font-size: 18px;
     margin: 0;
-    background-color: rgb(104, 227, 104);
+    background-image: url("../../assets/images/bg_img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 .container {
-    width: 25%;
+    width: 400px;
+    margin: 0 auto;
     background-color: #ccc;
+    border-radius: 20px;
 }
 
 .form {
@@ -23,7 +24,7 @@ body {
     margin-top: 100px;
     border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .create-acc{
@@ -33,7 +34,8 @@ body {
     justify-content: center;
     margin-bottom: 20px;
     padding: 20px;
-    background-color:antiquewhite
+    background-color:#fbc014;
+    color: #fff;
 }
 
 .register-form{
@@ -49,8 +51,10 @@ body {
 }
 
 #logo {
-    width: 75px;
+    width: 120px;
     height: 100px;
+    padding-top: 20px;
+    padding-bottom: -20px;
 }
 #info{
     padding-bottom: 20px;
@@ -75,14 +79,14 @@ body {
 }
 .create-account{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding-bottom: 50px;
 }
 .next{
-    color: black;
+    color: #fff;
     font-weight: 700;
     letter-spacing: .25px;
-    background-color: antiquewhite;
+    background-color: #fbc014;
     border: 0;
     margin: 1px 1px 0 1px;
     padding: 13px 15px;

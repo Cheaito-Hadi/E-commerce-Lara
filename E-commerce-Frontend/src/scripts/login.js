@@ -19,7 +19,7 @@ login =  () => {
             .then(data => {
                 if(data.authorization.token){
                     localStorage.setItem('user_id', data.user.id)
-                    localStorage.setItem('usertype', data.user.role_id)
+                    localStorage.setItem('role', data.user.role_id)
                     window.location.href='/E-commerce-Frontend/src/pages/shop.html'
                 }
             })

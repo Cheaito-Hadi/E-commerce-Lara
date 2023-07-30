@@ -23,7 +23,7 @@ register = () =>
 
         fetch("http://127.0.0.1:8000/api/register", requestOptions)
             .then(response => response.json())
-            .then(result => console.log(result))
+            .then(data => console.log(result))
             .catch(error => console.log('error', error));
 
     })
