@@ -18,7 +18,7 @@ class Product {
                 </div>
             <div class="product-wrapper">
                 <div class="img-container">
-                    <img src="../../assets/images/Football.png" width="200" height="200">
+                    <img src="data:image/png;base64,${this.img_path}" width="200" height="200">
                 </div>
                 <div class="product-container">
                     <div class="details">
@@ -35,16 +35,10 @@ class Product {
 }
 const products_objects = [];
 function showDashboard() {
-    const formData = new FormData();
-
-    let requestOptions = {
-        method: "POST",
-        body: formData
-    };
-
-    fetch("http://127.0.0.1:8000/api/show_products", requestOptions)
+  
+    fetch("http://127.0.0.1:8000/api/show_products")
         .then(response => response.json())
-        .then(data => {
+        .then(data => { console.log(JSON.stringify(data))
             data.products.forEach(ele => {
                 const product = new Product(
                     ele.id,

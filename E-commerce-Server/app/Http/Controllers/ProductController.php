@@ -21,7 +21,9 @@ class ProductController extends Controller
         $product->description = $request->description ? $request->description : $product->description;
         $product->price = $request->price ? $request->price : $product->price;
         $product->category = $request->category ? $request->category : $product->category;
-        $product->img_path = $request->img_path ? $request->img_path : $product->img_path;
+        $file_name = time()."product_image".".".$request->img_path->extension();
+        $request -> img_path->move(storage_path('images'),$file_name);
+        $product->img_path = storage_path("images")."\\".$file_name;
         $product->save();
 
         return json_encode(["products" => $product]);
@@ -33,9 +35,15 @@ class ProductController extends Controller
     }
 
     function getProducts()
-    {
-        $product = Product::all();
-        return json_encode(["products" => $product]);
+    {   
+        $products = Product::all();
+        foreach($products as $product) 
+        {
+            // return $product->img_path;
+            $image64 = base64_encode(file_get_contents($product->img_path));
+            $product -> img_path = $image64;
+        }
+        return json_encode(["products" => $products]);
     }
 
 }

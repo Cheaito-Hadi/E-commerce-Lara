@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/products.css">
+    <title>Products</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div>
+            <img src="../../assets/images/logo.png" width="70px" height="60px">
+        </div>
+        <div class="nav-right">
+            <div><a>Home</a></div>
+            <div><a>Products</a></div>
+            <div><a>About Us</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Add a Product:</h1>
+        <form id="create-product" class="inputs">
+            <div>
+                <label for="img">Select image: <br></label> <input type="file" id="product-img" name="img" accept="image/*" required >
+            </div>
+            <div class="input-txt">
+                <input type="text" id="product-name" title="Product name" required placeholder="Enter a product name..." />
+                <input type="text" id="product-description" title="description" required placeholder="Enter a description..." />
+                <input type="text" id="product-price" title="price" required placeholder="Enter a price..." />
+                <input type="text" id="product-category" title="Category name" required placeholder="Enter a category name..." />
+            </div>
+        <input type="submit" name="submit" id="submit-product" />
+        </form>
+    </div>
+    <script src="../scripts/products.js"></script>
+</body>
+
+</html>
