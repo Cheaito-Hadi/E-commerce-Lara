@@ -13,4 +13,4 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::post('/add_update_product/{id?}', [ProductController::class, "addOrUpdateProduct"]);
 Route::post('/delete_product/{id}', [ProductController::class, "deleteProduct"]);
-Route::post('/get_products', [ProductController::class, "getProducts"]);
+Route::post('/show_products', [ProductController::class, "getProducts"]);
