@@ -6,19 +6,41 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Favorite;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\DB;
 
 class FavoriteController extends Controller
 {
     public function getFavorites(Request $request){
 
-        $favorites = Favorite::all() -> where('user_id', $request-> user_id);
-        foreach($favorites as $favorite){
-            $price = Product::find($favorite -> product_id) -> price;
-            $name = Product::find($favorite -> product_id) -> name;
-            $favorite -> name = $name;
-            $favorite -> price = $price;
+//         SELECT products.name,products.price,products.img_path 
+// from products 
+// INNER JOIN favorites
+// ON favorites.product_id = products.id
+// where favorites.user_id = 8
+
+        $favorites = DB::table('favorites')
+         -> join('products', 'products.id', '=', 'favorites.product_id')
+         -> select('products.name','products.price', 'products.img_path')
+         -> where('favorites.user_id', $request -> user_id)
+         -> get();
+
+         foreach($favorites as $favorite) 
+        {
+            $image64 = base64_encode(file_get_contents($favorite->img_path));
+            $favorite -> img_path = $image64;
         }
+         
+        //  where('user_id', $request-> user_id);
+        // foreach($favorites as $favorite){
+        //     $product = Product::find($favorite -> product_id);
+        //     $picture = $product -> img_path;
+        //     $price = $product -> price;
+        //     $name = $product -> name;
+
+        //     $favorite -> name = $name;
+        //     $favorite -> price = $price;
+        //     $favorite -> price = $picture;
+        // }
         return json_encode(["favorites" => $favorites]);
     }
 

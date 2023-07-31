@@ -4,10 +4,10 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     margin: 0;
-    /* background-image: url("../../assets/images/background.jpg");
+    background-image: url("../../assets/images/grass.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; */
+    background-position: center;
 }
 
 .navbar {
