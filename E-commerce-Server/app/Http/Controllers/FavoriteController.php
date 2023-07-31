@@ -29,18 +29,6 @@ class FavoriteController extends Controller
             $image64 = base64_encode(file_get_contents($favorite->img_path));
             $favorite -> img_path = $image64;
         }
-         
-        //  where('user_id', $request-> user_id);
-        // foreach($favorites as $favorite){
-        //     $product = Product::find($favorite -> product_id);
-        //     $picture = $product -> img_path;
-        //     $price = $product -> price;
-        //     $name = $product -> name;
-
-        //     $favorite -> name = $name;
-        //     $favorite -> price = $price;
-        //     $favorite -> price = $picture;
-        // }
         return json_encode(["favorites" => $favorites]);
     }
 

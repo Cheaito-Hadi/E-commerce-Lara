@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 
 
 class CartController extends Controller
@@ -21,14 +23,17 @@ class CartController extends Controller
     }
 
     public function viewCart(Request $request){
+           $total = 0;
+    $carts = DB::table('carts')
+        ->join('products', 'products.id', '=', 'carts.product_id')
+        ->select('products.name', 'products.price')
+        ->where('carts.user_id', $request->user_id)
+        ->get();
 
-        $carts = Cart::all() -> where('user_id', $request-> user_id);
-        foreach($carts as $cart){
-            $price = Product::find($cart -> product_id) -> price;
-            $name = Product::find($cart -> product_id) -> name;
-            $cart -> name = $name;
-            $cart -> price = $price;
-        }
-        return json_encode(["carts" => $carts]);
+    foreach ($carts as $cart) {
+        $total += intval($cart->price);
+    }
+
+    return json_encode(["carts" => $carts, "total" => $total]);
     }
 }
