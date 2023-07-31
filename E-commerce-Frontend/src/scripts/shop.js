@@ -3,8 +3,8 @@ class Product {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.category = category;
         this.price = price;
+        this.category = category;
         this.img_path = img_path;
     }
 
@@ -13,7 +13,7 @@ class Product {
         <div class="description"><span class="description-span"><b>Description:</b> ${this.description}</span>
         <div class="fav-cart">
                         <div><span class="favorite-icon">&#10084;</span></div>
-                        <div class="detail-txt">Cart</div>
+                        <div><span class="favorite-icon">&#x1F6D2;</span></div>
                     </div>
                 </div>
             <div class="product-wrapper">
@@ -23,8 +23,8 @@ class Product {
                 <div class="product-container">
                     <div class="details">
                         <div class="detail-txt">Name: <span class="txt">${this.name}</span></div>
+                        <div class="detail-txt">Price: <span class="txt">$ ${this.category}</span></div>
                         <div class="detail-txt">Category: <span class="txt">${this.price}</span></div>
-                        <div class="detail-txt">Price: <span class="txt">${this.category}</span></div>
                     </div>
                     
                 </div>
@@ -70,4 +70,18 @@ function showDashboard() {
         });
 }
 
+function showProducts() 
+{
+    const role = parseInt(localStorage.getItem('role'));
+    const productsDiv = document.querySelector('.nav-right div:nth-child(2)');
+    if (role === 1) 
+    {
+        productsDiv.style.display = 'block';
+    } 
+    else 
+    {
+        productsDiv.style.display = 'none';
+    }
+}
+showProducts();
 showDashboard();

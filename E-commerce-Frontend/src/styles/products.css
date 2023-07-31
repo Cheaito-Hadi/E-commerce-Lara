@@ -4,10 +4,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     margin: 0;
+    /* background-image: url("../../assets/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
 }
 
 .navbar {
-    background-color: rgb(104, 227, 104);
+    background-color: #ccc;
     padding: 10px;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +38,7 @@ body {
 }
 
 .navbar a:hover {
-    background-color: white;
+    background-color: #fbc014;
     color: black;
     font-size: 22px;
     cursor: pointer;
