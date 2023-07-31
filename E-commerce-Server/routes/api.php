@@ -18,5 +18,5 @@ Route::post('/delete_product/{id}', [ProductController::class, "deleteProduct"])
 Route::get('/show_products', [ProductController::class, "getProducts"]);
 Route::post('/add_favorite', [FavoriteController::class, "addFavorites"]);
 Route::post('/show_favorite', [FavoriteController::class, "getFavorites"]);
-Route::get('/show_cart', [CartController::class, "viewCart"]);
+Route::post('/show_cart', [CartController::class, "viewCart"]);
 Route::post('/add_cart', [CartController::class, "addToCart"]);
