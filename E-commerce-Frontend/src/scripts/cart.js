@@ -45,5 +45,19 @@ function showCarts() {
             document.querySelector('.total').innerHTML += `<span>${total}</span>`
  })
 }
+function showProducts() 
+{
+    const role = parseInt(localStorage.getItem('role'));
+    const productsDiv = document.querySelector('.nav-right div:nth-child(2)');
+    if (role === 1) 
+    {
+        productsDiv.style.display = 'block';
+    } 
+    else 
+    {
+        productsDiv.style.display = 'none';
+    }
+}
+showProducts();
 
 showCarts();
