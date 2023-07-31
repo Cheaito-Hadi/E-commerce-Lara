@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\CartController;
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');

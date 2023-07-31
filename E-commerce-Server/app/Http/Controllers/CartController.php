@@ -9,9 +9,14 @@ use App\Models\Cart;
 
 class CartController extends Controller
 {
-    function addToCart () 
+    function addToCart (Request $request) 
     {
+        $cart = new Cart;
+        $cart -> user_id = $request -> user_id;
+        $cart -> product_id = $request -> product_id;
+        $cart -> save();
 
+        return json_encode(["cart_products" => $cart]);
     }
 
     function viewCart () 

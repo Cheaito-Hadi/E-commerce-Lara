@@ -89,6 +89,7 @@ function showDashboard() {
                     const cartData = new FormData()
                     cartData.append('user_id', localStorage.getItem('user_id'))
                     cartData.append('product_id', localStorage.getItem('product_id'))
+                    console.log(cartData)
                     fetch("http://127.0.0.1:8000/api/add_cart", 
                     {
                         method: "POST",
