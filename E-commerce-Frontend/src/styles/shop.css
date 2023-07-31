@@ -137,6 +137,18 @@ body {
     background-color: #fbc014;
 }
 
+.cart-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.cart-cart :hover{
+    background-color: #fbc014;
+}
+
 .description{
     display: flex;
     font-size: 20px;

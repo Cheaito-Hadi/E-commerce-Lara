@@ -13,7 +13,7 @@ class Product {
         <div class="description"><span class="description-span"><b>Description:</b> ${this.description}</span>
         <div class="fav-cart">
                         <div><span class="favorite-icon">&#10084;</span></div>
-                        <div><span id="cart-btn" class="favorite-icon">&#x1F6D2;</span></div>
+                        <div><span class="cart-icon">&#x1F6D2;</span></div>
                     </div>
                 </div>
             <div class="product-wrapper">
@@ -55,6 +55,7 @@ function showDashboard() {
             const productCards = document.querySelectorAll('.product');
             productCards.forEach((card) => {
             const favorite_btn = card.querySelector('.favorite-icon')
+            const cart_btn = card.querySelector('.cart-icon')
                 card.addEventListener('mouseenter', () => {
                     const info = card.querySelector('.product-wrapper');
                     const description = card.querySelector('.description');
@@ -78,6 +79,20 @@ function showDashboard() {
                     {
                         method: "POST",
                         body: favoriteData
+                    })
+                    .then(response => response.json())
+                    .then(results => console.log(results))
+                    .catch(error => console.error('error', error))
+                })
+                cart_btn.addEventListener('click', () =>
+                {
+                    const cartData = new FormData()
+                    cartData.append('user_id', localStorage.getItem('user_id'))
+                    cartData.append('product_id', localStorage.getItem('product_id'))
+                    fetch("http://127.0.0.1:8000/api/add_cart", 
+                    {
+                        method: "POST",
+                        body: cartData
                     })
                     .then(response => response.json())
                     .then(results => console.log(results))
