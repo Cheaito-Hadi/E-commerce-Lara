@@ -54,6 +54,7 @@ function showDashboard() {
             });
             const productCards = document.querySelectorAll('.product');
             productCards.forEach((card) => {
+            const favorite_btn = card.querySelector('.favorite-icon')
                 card.addEventListener('mouseenter', () => {
                     const info = card.querySelector('.product-wrapper');
                     const description = card.querySelector('.description');
@@ -68,7 +69,6 @@ function showDashboard() {
                     info.style.display = 'block';
                     description.style.display = 'none';
                 });
-                const favorite_btn = document.querySelector('.favorite-icon')
                 favorite_btn.addEventListener('click', () =>
                 {
                     const favoriteData = new FormData()
