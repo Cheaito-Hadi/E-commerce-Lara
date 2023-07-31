@@ -4,10 +4,10 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     margin: 0;
-    /* background-image: url("../../assets/images/background.jpg");
+    background-image: url("../../assets/images/grass.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; */
+    background-position: center;
 }
 
 .navbar {
@@ -18,7 +18,6 @@ body {
     font-size: 20px;
     font-weight: 600;
     display: flex;
-
 }
 
 .nav-left {
@@ -34,7 +33,6 @@ body {
     color: black;
     padding: 5px 10px;
     border-radius: 5px;
-
 }
 
 .navbar a:hover {
@@ -59,24 +57,68 @@ body {
         flex-direction: column;
         align-items: center;
     }
+
+    .inputs {
+        max-width: 100%;
+    }
 }
 
-.inputs{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.input-txt{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 30px;
+}
+
+.wrapper {
+    padding: 20px;
+    background-color: #ccc;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.input-txt {
+    width: 350px;
+}
+
+.inputs label {
+    font-weight: bold;
+}
+
+
+#product-name,
+#product-description,
+#product-price,
+#product-category {
+    padding: 10px 0px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 97%;
+}
+
+#submit-product {
+    background-color: #fbc014;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit-product:hover {
+    background-color: #e2b907;
 }

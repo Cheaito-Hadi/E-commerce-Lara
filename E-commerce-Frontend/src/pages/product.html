@@ -19,23 +19,28 @@
             <div><a href="../pages/cart.html">&#x1F6D2; <span>Cart</span></a></div>
             <div><a href="../pages/favorite.html">&#10084; <span>Fav</span></a></div>
             <div><a>&#x24D8; <span>About us</span></a></div>
-            <div><a>About Us</a></div>
         </div>
     </div>
     <div class="container">
-        <h1>Add a Product:</h1>
-        <form id="create-product" class="inputs">
-            <div>
-                <label for="img">Select image: <br></label> <input type="file" id="product-img" name="img" accept="image/*" required >
-            </div>
-            <div class="input-txt">
-                <input type="text" id="product-name" title="Product name" required placeholder="Enter a product name..." />
-                <input type="text" id="product-description" title="description" required placeholder="Enter a description..." />
-                <input type="text" id="product-price" title="price" required placeholder="Enter a price..." />
-                <input type="text" id="product-category" title="Category name" required placeholder="Enter a category name..." />
-            </div>
-        <input type="submit" name="submit" id="submit-product" />
-        </form>
+        <div class="wrapper">
+            <h1>Add a Product:</h1>
+            <form id="create-product" class="inputs">
+                <div>
+                    <label for="img">Select image: <br></label> <input type="file" id="product-img" name="img"
+                        accept="image/*" required>
+                </div>
+                <div class="input-txt">
+                    <input type="text" id="product-name" title="Product name" required
+                        placeholder="Enter a product name..." />
+                    <input type="text" id="product-description" title="description" required
+                        placeholder="Enter a description..." />
+                    <input type="text" id="product-price" title="price" required placeholder="Enter a price..." />
+                    <input type="text" id="product-category" title="Category name" required
+                        placeholder="Enter a category name..." />
+                </div>
+                <input type="submit" name="submit" id="submit-product" />
+            </form>
+        </div>
     </div>
     <script src="../scripts/products.js"></script>
 </body>
