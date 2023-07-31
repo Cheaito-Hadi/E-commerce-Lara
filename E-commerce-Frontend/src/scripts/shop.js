@@ -9,11 +9,11 @@ class Product {
     }
 
     viewProducts() {
-        return ` <div class="product">
+        return ` <div class="product" data-product_id= "${this.id}">
         <div class="description"><span class="description-span"><b>Description:</b> ${this.description}</span>
         <div class="fav-cart">
                         <div><span class="favorite-icon">&#10084;</span></div>
-                        <div><span class="favorite-icon">&#x1F6D2;</span></div>
+                        <div><span id="cart-btn" class="favorite-icon">&#x1F6D2;</span></div>
                     </div>
                 </div>
             <div class="product-wrapper">
@@ -57,6 +57,8 @@ function showDashboard() {
                 card.addEventListener('mouseenter', () => {
                     const info = card.querySelector('.product-wrapper');
                     const description = card.querySelector('.description');
+                    const product_id = card.getAttribute('data-product_id');
+                    localStorage.setItem('product_id', product_id)
                     info.style.display = 'none';
                     description.style.display = 'flex';
                 });
@@ -66,8 +68,24 @@ function showDashboard() {
                     info.style.display = 'block';
                     description.style.display = 'none';
                 });
+                const favorite_btn = document.querySelector('.favorite-icon')
+                favorite_btn.addEventListener('click', () =>
+                {
+                    const favoriteData = new FormData()
+                    favoriteData.append('user_id', localStorage.getItem('user_id'))
+                    favoriteData.append('product_id', localStorage.getItem('product_id'))
+                    fetch("http://127.0.0.1:8000/api/add_favorite", 
+                    {
+                        method: "POST",
+                        body: favoriteData
+                    })
+                    .then(response => response.json())
+                    .then(results => console.log(results))
+                    .catch(error => console.error('error', error))
+                })
             });
         });
+
 }
 
 function showProducts() 
